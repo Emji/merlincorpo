@@ -31,9 +31,9 @@
             <div class="content cover text-center">
                 <div class="row">
                     <div class="col-sm-12">
-                        <h1 class="mt-0 mb-4 animated hiding" data-animation="fadeInDown" data-delay="300">We Are Photographer</h1>
+                        <h1 class="mt-0 mb-4 animated hiding" data-animation="fadeInDown" data-delay="300">We Do Corporate Portrait Photography</h1>
                         <a class="mt-0 mb-4 btn btn-blue nav-external animated hiding" data-animation="fadeIn" data-delay="900" href="#services">Find more</a>
-                        <h3 class="mt-0 mb-0 animated hiding" data-animation="fadeIn" data-delay="600">We Have Made A Lot Of Friends.</h3>
+                        <h3 class="mt-0 mb-0 animated hiding" data-animation="fadeIn" data-delay="600">We Have Made A Lot Of People Happy</h3>
                     </div>
                 </div>
             </div>
@@ -78,25 +78,9 @@
                 <div class="heading">
                     <h2 class="mt-0 mb-4">What we love doing.</h2>
                     <div class="border"></div>
-                    <p class="mt-4 mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa, alias enim placeat earum quos ab.</p>
+                    <p class="mt-4 mb-0">Nous réalisons des portraits corporate</p>
                 </div>
-                <div class="row">
-                    <div class="col-sm-4 service animated hiding" data-animation="fadeInUp" data-delay="300">
-                        <i class="fa fa-globe fa-5x"></i>
-                        <h3 class="mt-5 mb-4"><a href="#">Web Design</a></h3>
-                        <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p>
-                    </div>
-                    <div class="col-sm-4 service animated hiding" data-animation="fadeInUp" data-delay="600">
-                        <i class="fa fa-cloud fa-5x"></i>
-                        <h3 class="mt-5 mb-4"><a href="#">Web Development</a></h3>
-                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque lau dantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta.</p>
-                    </div>
-                    <div class="col-sm-4 service animated hiding" data-animation="fadeInUp" data-delay="900">
-                        <i class="fa fa-mobile fa-5x"></i>
-                        <h3 class="mt-5 mb-4"><a href="#">Mobile Development</a></h3>
-                        <p>Aliquam aliquet, est a ullamcorper condimentum, tellus nulla fringilla elit, a iaculis nulla turpis sed wisi. Fusce volutpat. Etiam sodales ante id nunc. Proin ornare dignissim lacus.</p>
-                    </div>
-                </div>
+
             </div>
         </div>
     </section>
@@ -111,7 +95,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div id="portfolio">
-                            <ul class="filters list-inline">
+                            {{-- <ul class="filters list-inline">
                                 <li class="list-inline-item">
                                     <a class="active" data-filter="*" href="#">All</a>
                                 </li>
@@ -124,11 +108,11 @@
                                 <li class="list-inline-item">
                                     <a data-filter=".web" href="#">Web</a>
                                 </li>
-                            </ul>
+                            </ul> --}}
                             <ul class="items list-unstyled clearfix animated hiding mb-0" data-animation="fadeInRight">
                                 <li class="item branding">
                                     <a href="work.html" data-gall="work" data-vbtype="ajax">
-                                        <img src="img/work/1.jpg" alt="">
+                                        <img src="img/work/_JI0070.jpg" alt="">
                                         <div class="overlay">
                                             <span>Etiam porta</span>
                                         </div>
@@ -414,11 +398,6 @@
                             </a>
                         </li>
                     </ul>
-                    <p class="copyright">
-                        Created by <a href="http://halibegic.info">halibegic</a> &middot; Code licensed under the <a href="http://www.apache.org/licenses/LICENSE-2.0">Apache License v2.0</a> &middot; Based on <a href="http://getbootstrap.com/">Bootstrap v4</a> &middot; Icons by <a href="http://fontawesome.io/">Font Awesome</a> &middot;
-                        <a href="http://www.github.com/halibegic/merlin">GitHub</a> &middot;
-                        <a href="http://steamcommunity.com/id/halibegic">Buy Me a Game</a>
-                    </p>
                 </div>
             </div>
         </div>
@@ -432,7 +411,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-one-page-nav/3.0.0/jquery.nav.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.appear/0.3.3/jquery.appear.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/venobox/1.8.2/venobox.min.js"></script>
-    {{-- <script src="js/script.js?v=1.0"></script> --}}
+    <script src="{{asset('js/script.js?v=1.0')}}"></script>
+   
     <!-- Google Analytics: change UA-25089888-9 to be your site's ID. -->
     <script>
         (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
@@ -443,7 +423,6 @@
         ga('create','UA-25089888-9');ga('send','pageview');
     </script>
  
-    <script src="{{asset('js/script.js?v=1.0')}}"></script>
-    {{-- <script src="{{asset('js/app.js')}}"></script> --}}
+  
 </body>
 </html>
