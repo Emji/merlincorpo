@@ -12,14 +12,18 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,600" async defer>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" async defer>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/venobox/1.8.2/venobox.css" async defer>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css" async defer>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css" async defer> 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" async defer>
+   
+    <link rel="stylesheet" href="{{asset('css/app.css')}}" async defer>
     <link rel="stylesheet" href="{{asset('css/style.css')}}" async defer>
-    {{-- <link rel="stylesheet" href="{{asset('css/app.css')}}" async defer> --}}
+
+    
     <!--[if lt IE 9]>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+
 </head>
 
 <body>
@@ -76,9 +80,11 @@
         <div class="container">
             <div class="content text-center">
                 <div class="heading">
-                    <h2 class="mt-0 mb-4">What we love doing.</h2>
+                    <h2 class="mt-0 mb-4">Nous réalisons des portraits corporate</h2>
                     <div class="border"></div>
-                    <p class="mt-4 mb-0">Nous réalisons des portraits corporate</p>
+                    <div class="d-flex justify-content-center">
+                    <p class="mt-4 mb-0 text-justify">Une image vaut plus que 1000 mots. À notre époque  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Rem nihil dolores accusantium officiis sit eligendi eaque nostrum inventore fuga, officia quia architecto nesciunt, repudiandae vel praesentium iusto, tenetur nobis repellat.Dolorum dicta quibusdam, veritatis tempore itaque inventore cumque recusandae consequuntur est aspernatur voluptatibus exercitationem repudiandae unde nam voluptate quas tenetur voluptatum debitis molestias! Inventore, deserunt expedita ex culpa perspiciatis et?</p>
+                    </div>
                 </div>
 
             </div>
