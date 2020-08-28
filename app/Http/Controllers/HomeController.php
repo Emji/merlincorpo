@@ -3,12 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Photo;
-use App\Heure;
-use App\session;
-use App\newsletter;
-use App\Client;
-use App\User;
 
 class HomeController extends Controller
 {
@@ -19,11 +13,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $heures= Heure::all();
-    
-
-
-        return view('welcome',compact('heures'));
+        return view('welcome');
     }
 
     /**

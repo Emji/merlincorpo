@@ -14,3 +14,17 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::resource('/', 'HomeController');
+
+
+Auth::routes();
+
+Route::middleware('isAdmin')->group(function () {
+
+
+Route::get('/admin', 'AdminController');
+Route::resource('/admin/photo', 'AdminPhotoController');
+
+
+ });
+
+
