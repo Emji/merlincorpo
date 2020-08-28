@@ -25,6 +25,7 @@ Route::get('/admin', 'AdminController');
 Route::resource('/admin/photo', 'AdminPhotoController');
 
 
+
  });
 
 

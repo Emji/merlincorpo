@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use  Image;
+use App\photo;
+use Storage;
 
 class HomeController extends Controller
 {
@@ -13,7 +16,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('welcome');
+        $photos=photo::all();
+        return view('welcome',compact('photos'));
     }
 
     /**

@@ -116,70 +116,16 @@
                                 </li>
                             </ul> --}}
                             <ul class="items list-unstyled clearfix animated hiding mb-0" data-animation="fadeInRight">
+                                @foreach($photos as $photo)
                                 <li class="item branding">
-                                    <a href="work.html" data-gall="work" data-vbtype="ajax">
-                                        <img src="img/work/_JI0070.jpg" alt="">
+                                    <a href="{{route('work',['photo'=>$photo->id])}}" data-gall="work" data-vbtype="ajax">
+                                        <img src="{{Storage::disk('photo')->url($photo->image)}}" alt="">
                                         <div class="overlay">
-                                            <span>Etiam porta</span>
+                                            
                                         </div>
                                     </a>
                                 </li>
-                                <li class="item photography">
-                                    <a href="work.html" data-gall="work" data-vbtype="ajax">
-                                        <img src="img/work/2.jpg" alt="">
-                                        <div class="overlay">
-                                            <span>Lorem ipsum</span>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="item branding">
-                                    <a href="work.html" data-gall="work" data-vbtype="ajax">
-                                        <img src="img/work/3.jpg" alt="">
-                                        <div class="overlay">
-                                            <span>Vivamus quis</span>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="item photography">
-                                    <a href="work.html" data-gall="work" data-vbtype="ajax">
-                                        <img src="img/work/4.jpg" alt="">
-                                        <div class="overlay">
-                                            <span>Donec ac tellus</span>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="item photography">
-                                    <a href="work.html" data-gall="work" data-vbtype="ajax">
-                                        <img src="img/work/5.jpg" alt="">
-                                        <div class="overlay">
-                                            <span>Etiam volutpat</span>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="item web">
-                                    <a href="work.html" data-gall="work" data-vbtype="ajax">
-                                        <img src="img/work/6.jpg" alt="">
-                                        <div class="overlay">
-                                            <span>Donec congue </span>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="item photography">
-                                    <a href="work.html" data-gall="work" data-vbtype="ajax">
-                                        <img src="img/work/7.jpg" alt="">
-                                        <div class="overlay">
-                                            <span>Nullam a ullamcorper diam</span>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="item web">
-                                    <a href="work.html" data-gall="work" data-vbtype="ajax">
-                                        <img src="img/work/8.jpg" alt="">
-                                        <div class="overlay">
-                                            <span>Etiam consequat</span>
-                                        </div>
-                                    </a>
-                                </li>
+                                @endforeach
                             </ul>
                         </div>
                     </div>

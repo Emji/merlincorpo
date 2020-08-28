@@ -1,8 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
+use App;
 use App\photo;
-
+use Image;
+use Storage;
+use App\Services\ImageResize;
 use Illuminate\Http\Request;
 use  App\Http\Requests\PhotoValidation;
 
@@ -13,11 +16,19 @@ class AdminPhotoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct(ImageResize $ImageResize)
+    {
+        $this->ImageResize = $ImageResize;
+    }
+
     public function index()
     {
+        $photo=photo::all();
 
+       
         
-        return view('admin.photo.index');
+        return view('admin.photo.index',compact('photo'));
     }
 
     /**
@@ -43,12 +54,14 @@ class AdminPhotoController extends Controller
         if($validated = $request->validated()){;
 
         $photo = new photo;
-
-        $photo->image=$request->image;
+        
+        
+        $photo->image=$this->ImageResize->PhotoStore($request->image);
 
         $photo->save();
 
-        return view('admin.photo.index')->with();
+      
+        return redirect()->route('photo.index');
         }
         else{
             return redirect()->back();
@@ -64,7 +77,8 @@ class AdminPhotoController extends Controller
      */
     public function show($id)
     {
-        //
+        
+
     }
 
     /**
@@ -75,7 +89,8 @@ class AdminPhotoController extends Controller
      */
     public function edit($id)
     {
-        //
+        $phot = photo::find($id);
+        return view('admin.photo.edit',compact('phot'));
     }
 
     /**
@@ -85,9 +100,24 @@ class AdminPhotoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(PhotoValidation  $request, $id)
     {
-        //
+       $validated = $request->validated();
+       
+        $photo = photo::find($id);
+
+        $photo->image= $this->ImageResize->PhotoDelete($photo->image);
+       
+        $photo->image =$request->image;
+        
+        $photo->image=$this->ImageResize->PhotoStore($request->image);
+
+        $photo->save();
+        if ($photo->save()){
+             
+             return redirect()->route('photo.index');
+         
+        }
     }
 
     /**
@@ -98,6 +128,15 @@ class AdminPhotoController extends Controller
      */
     public function destroy($id)
     {
-        //
-    }
+   
+        
+       $photo = photo::find($id);
+        $this->ImageResize->PhotoDelete($photo->image);
+         if ($photo->delete()){
+             
+             return redirect()->route('photo.index');
+         }
+
+         }
+    
 }
