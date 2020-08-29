@@ -391,48 +391,24 @@ a:focus {
 #SessionForm .content {
     margin-bottom: 0;
 }
-
-#SessionForm .teammate {
-    margin-top: 4rem;
-    margin-bottom: 4rem;
+#SessionForm form {
+    width: 100%;
+    background-color: white;
+    border: solid 1px;
+    box-sizing: border-box;
+    border-radius: 1em;
+    margin-bottom: 5em;
 }
-
-#SessionForm .teammate .profile-photo {
-    overflow: hidden;
+#SessionForm form .contentForm {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 30px;
+    display: flex;
 }
-
-#SessionForm .teammate .profile-photo img {
-    -webkit-transition: all .4s ease;
-    -moz-transition: all .4s ease;
-    -ms-transition: all .4s ease;
-    -o-transition: all .4s ease;
-    transition: all .4s ease;
-}
-
-#SessionForm .teammate:hover .profile-photo img,
-#SessionForm .teammate:focus .profile-photo img {
-    -webkit-transform: scale(1.1);
-    -moz-transform: scale(1.1);
-    -ms-transform: scale(1.1);
-    -o-transform: scale(1.1);
-    transform: scale(1.1);
-}
-
-#SessionForm .teammate .bio .border {
-    height: 1px;
-}
-
-#SessionForm .teammate .bio ul {
-    margin-bottom: 0;
-}
-
-#SessionForm .teammate .bio a {
-    color: #666;
-}
-
-#SessionForm .teammate .bio a:hover,
-#SessionForm .teammate .bio a:focus {
-    color: #222;
+#SessionForm form .contentForm input{
+    border-style:inset !important;
+    border: none;
+    border-bottom: solid 1px;
 }
 
 #contact {

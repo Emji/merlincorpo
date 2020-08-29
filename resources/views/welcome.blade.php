@@ -11,7 +11,7 @@
     <title>Merlin</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,600" async defer>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" async defer>
-    {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/venobox/1.8.2/venobox.css" async defer> --}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/venobox/1.8.2/venobox.css" async defer>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css" async defer> 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" async defer>
    
@@ -172,132 +172,43 @@
             </div>
         </div>
     </section>
-    <section id="about" class="page">
+    <section id="SessionForm" class="page">
         <div class="container">
             <div class="content text-center">
-                <div class="heading">
-                    <h2 class="mt-0 mb-4">About Us.</h2>
-                    <div class="border"></div>
-                    <p class="mt-4 mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute irure dolor.</p>
-                </div>
-                <div class="row">
-                    <div class="col-md-3 col-sm-6 col-xs-12 teammate animated hiding" data-animation="fadeInLeft" data-delay="600">
-                        <div class="profile-photo">
-                            <img class="img-fluid" src="img/team/1.jpg" alt="">
+                <div><h3>ceci est un formulaire </h3></div>
+                <div class="row animated d-flex justify-content-center hiding mt-3" data-animation="fadeInRight" data-delay="600">
+                    
+                    <form action="" method="post">
+                        <div class="contentForm">
+                            <div class="col-2">
+                                <div class="row">
+                                    <label for="heure"> choissisez votre heure</label>
+                                    <select name="heure" id="">
+                                        @foreach($heures as $heure)
+                                        <option value="{{$heure->heure}}"@if($heure->taken)disabled @endif>@if($heure->taken)Indisponible @else{{$heure->heure}}@endif</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-5 d-flex flex-column">
+                                <div>
+                                    <label for="name"> Nom</label>
+                                    <input required type="text" name="name">
+                                </div>
+                                <div>
+                                    <label for="forname"> Prénom</label>
+                                    <input required type="text" name="forname">
+                                </div>
+                            </div>
+                            <div class="col-5">
+                                 <input required type="email" name="mail">
+                                 <input required type="number" name="phone" id="">
+                            </div>
                         </div>
-                        <div class="bio mt-4">
-                            <h5 class="mb-1">John Doe</h5>
-                            <p>Web Developer</p>
-                            <div class="border mt-4 mb-4"></div>
-                            <p>Lorem ipsum dolor sit, consetetur sadipscing elitr, diam nonumy eirmod tempor invidunt ut labore.</p>
-                            <ul class="list-inline">
-                                <li class="list-inline-item">
-                                    <a href="http://www.facebook.com" title="Facebook">
-                                        <i class="fa fa-facebook"></i>
-                                    </a>
-                                </li>
-                                <li class="list-inline-item">
-                                    <a href="http://www.twitter.com" title="Twitter">
-                                        <i class="fa fa-twitter"></i>
-                                    </a>
-                                </li>
-                                <li class="list-inline-item">
-                                    <a href="http://www.linkedin.com" title="LinkedIn">
-                                        <i class="fa fa-linkedin"></i>
-                                    </a>
-                                </li>
-                                <li class="list-inline-item">
-                                    <a href="http://www.github.com" title="GitHub">
-                                        <i class="fa fa-github"></i>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-6 col-xs-12 teammate animated hiding" data-animation="fadeInUp" data-delay="300">
-                        <div class="profile-photo">
-                            <img class="img-fluid" src="img/team/2.jpg" alt="">
-                        </div>
-                        <div class="bio mt-4">
-                            <h5 class="mb-1">Clarinda Gratia</h5>
-                            <p>Designer</p>
-                            <div class="border mt-4 mb-4"></div>
-                            <p>Lorem ipsum dolor sit, consetetur sadipscing elitr, diam nonumy eirmod tempor invidunt ut labore.</p>
-                            <ul class="list-inline">
-                                <li class="list-inline-item">
-                                    <a href="http://www.dribbble.com" title="Dribbble">
-                                        <i class="fa fa-dribbble"></i>
-                                    </a>
-                                </li>
-                                <li class="list-inline-item">
-                                    <a href="http://www.pinterest.com" title="Pinterest">
-                                        <i class="fa fa-pinterest"></i>
-                                    </a>
-                                </li>
-                                <li class="list-inline-item">
-                                    <a href="http://www.instagram.com" title="Instagram">
-                                        <i class="fa fa-instagram"></i>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-6 col-xs-12 teammate animated hiding" data-animation="fadeInUp" data-delay="300">
-                        <div class="profile-photo">
-                            <img class="img-fluid" src="img/team/3.jpg" alt="">
-                        </div>
-                        <div class="bio mt-4">
-                            <h5 class="mb-1">Mandeep Eimear</h5>
-                            <p>Mobile Developer</p>
-                            <div class="border mt-4 mb-4"></div>
-                            <p>Lorem ipsum dolor sit, consetetur sadipscing elitr, diam nonumy eirmod tempor invidunt ut labore.</p>
-                            <ul class="list-inline">
-                                <li class="list-inline-item">
-                                    <a href="http://www.twitter.com" title="Twitter">
-                                        <i class="fa fa-twitter"></i>
-                                    </a>
-                                </li>
-                                <li class="list-inline-item">
-                                    <a href="http://developer.android.com/index.html" title="Android Developers">
-                                        <i class="fa fa-android"></i>
-                                    </a>
-                                </li>
-                                <li class="list-inline-item">
-                                    <a href="http://www.stackoverflow.com" title="Stack Overflow">
-                                        <i class="fa fa-stack-overflow"></i>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-6 col-xs-12 teammate animated hiding" data-animation="fadeInRight" data-delay="600">
-                        <div class="profile-photo">
-                            <img class="img-fluid" src="img/team/4.jpg" alt="">
-                        </div>
-                        <div class="bio mt-4">
-                            <h5 class="mb-1">Wigstan Fergus</h5>
-                            <p>QA Engineer</p>
-                            <div class="border mt-4 mb-4"></div>
-                            <p>Lorem ipsum dolor sit, consetetur sadipscing elitr, diam nonumy eirmod tempor invidunt ut labore.</p>
-                            <ul class="list-inline">
-                                <li class="list-inline-item">
-                                    <a href="http://www.plus.google.com" title="Google+">
-                                        <i class="fa fa-google-plus"></i>
-                                    </a>
-                                </li>
-                                <li class="list-inline-item">
-                                    <a href="http://www.trello.com" title="Trello">
-                                        <i class="fa fa-trello"></i>
-                                    </a>
-                                </li>
-                                <li class="list-inline-item">
-                                    <a href="mailto:john.doe@mail.com" title="Email">
-                                        <i class="fa fa-envelope"></i>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
+                    </form>
+                    
+                
+                    
                 </div>
             </div>
         </div>
@@ -365,7 +276,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/2.1.2/jquery.scrollTo.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-one-page-nav/3.0.0/jquery.nav.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.appear/0.3.3/jquery.appear.min.js"></script>
-    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/venobox/1.8.2/venobox.min.js"></script> --}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/venobox/1.8.2/venobox.min.js"></script>
     <script src="{{asset('js/script.js?v=1.0')}}"></script>
   
     <!-- Google Analytics: change UA-25089888-9 to be your site's ID. -->
