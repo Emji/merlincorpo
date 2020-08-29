@@ -11,7 +11,7 @@
     <title>Merlin</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,600" async defer>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" async defer>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/venobox/1.8.2/venobox.css" async defer>
+    {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/venobox/1.8.2/venobox.css" async defer> --}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css" async defer> 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" async defer>
    
@@ -100,7 +100,8 @@
                 </div>
                 <div class="row">
                     <div class="col-md-12">
-                        <div id="portfolio">
+                      
+                            
                             {{-- <ul class="filters list-inline">
                                 <li class="list-inline-item">
                                     <a class="active" data-filter="*" href="#">All</a>
@@ -115,11 +116,12 @@
                                     <a data-filter=".web" href="#">Web</a>
                                 </li>
                             </ul> --}}
+                           
                             <ul class="items list-unstyled clearfix animated hiding mb-0" data-animation="fadeInRight">
                                 @foreach($photos as $photo)
                                 <li class="item branding">
-                                    <a href="{{route('work',['photo'=>$photo->id])}}" data-gall="work" data-vbtype="ajax">
-                                        <img src="{{Storage::disk('photo')->url($photo->image)}}" alt="">
+                                    <a href="{{Storage::disk('photo')->url($photo->image)}}" data-gall="work" data-vbtype="ajax" class="venobox">
+                                        <img class="portfolio-img" src="{{Storage::disk('photo')->url($photo->image)}}" alt="">
                                         <div class="overlay">
                                             
                                         </div>
@@ -127,7 +129,8 @@
                                 </li>
                                 @endforeach
                             </ul>
-                        </div>
+
+                        
                     </div>
                 </div>
             </div>
@@ -362,9 +365,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/2.1.2/jquery.scrollTo.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-one-page-nav/3.0.0/jquery.nav.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.appear/0.3.3/jquery.appear.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/venobox/1.8.2/venobox.min.js"></script>
+    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/venobox/1.8.2/venobox.min.js"></script> --}}
     <script src="{{asset('js/script.js?v=1.0')}}"></script>
-   
+  
     <!-- Google Analytics: change UA-25089888-9 to be your site's ID. -->
     <script>
         (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=

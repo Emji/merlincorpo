@@ -23,6 +23,7 @@ Route::middleware('isAdmin')->group(function () {
 
 Route::get('/admin', 'AdminController');
 Route::resource('/admin/photo', 'AdminPhotoController');
+Route::resource('/admin/session', 'AdminSessionController');
 
 
 

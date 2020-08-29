@@ -242,6 +242,11 @@ return [
             'can'  => 'manage-blog',
         ],
         [
+            'text'        => 'Session',
+            'url'         => 'admin/session',
+            'icon'        => 'far fa-fw fa-file',
+        ],
+        [
             'text'        => 'Photo',
             'url'         => 'admin/photo',
             'icon'        => 'far fa-fw fa-file',
