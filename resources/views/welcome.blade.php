@@ -176,39 +176,63 @@
         <div class="container">
             <div class="content text-center">
                 <div><h3>ceci est un formulaire </h3></div>
-                <div class="row animated d-flex justify-content-center hiding mt-3" data-animation="fadeInRight" data-delay="600">
-                    
-                    <form action="" method="post">
-                        <div class="contentForm">
-                            <div class="col-2">
-                                <div class="row">
+                <div id="app">
+                <example-component></example-component>
+                </div>
+                <div id="formWindow" class="d-none content cover row justify-content-center ">
+                   
+                <form url='/store' method="post" enctype="multipart/form-data">
+                    @csrf
+                    @method("POST")
+                        <div class="contentForm row">
+                            <div class="col-2 d-flex align-items-center">
+                                <div>                              
                                     <label for="heure"> choissisez votre heure</label>
                                     <select name="heure" id="">
                                         @foreach($heures as $heure)
-                                        <option value="{{$heure->heure}}"@if($heure->taken)disabled @endif>@if($heure->taken)Indisponible @else{{$heure->heure}}@endif</option>
+                                        <option value="{{$heure->id}}"@if($heure->taken)disabled @endif>@if($heure->taken)Indisponible @else{{$heure->heure}}@endif</option>
                                         @endforeach
                                     </select>
+                                </div> 
+                            </div>
+                            <div class="col-1"></div>
+                            <div class="col-4 d-flex flex-column">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <label for="name" class="m-3"> Nom :</label>
+                                    <input required type="text" name="name" class="m-3">
+                                </div>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <label for="forname" class="m-3"> Prénom :</label>
+                                    <input required type="text" name="forname" class="m-3">
                                 </div>
                             </div>
                             <div class="col-5 d-flex flex-column">
-                                <div>
-                                    <label for="name"> Nom</label>
-                                    <input required type="text" name="name">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <label for="mail" class="m-3"> Email :</label>
+                                    <input required type="email" name="mail" class="m-3">
                                 </div>
-                                <div>
-                                    <label for="forname"> Prénom</label>
-                                    <input required type="text" name="forname">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <label for="mail" class="m-3"> Number :</label>
+                                    <input required type="tel" name="phone"class="m-3" id="">
                                 </div>
-                            </div>
-                            <div class="col-5">
-                                 <input required type="email" name="mail">
-                                 <input required type="number" name="phone" id="">
                             </div>
                         </div>
+                        <div class="newsletterChecForm">
+                                <input type="checkbox" checked name="newsletter" id="">
+                                <p>Voulez vous vous inscrire à la newsletter ?</p>
+
+                        </div>
+                        <div class="row">
+                            <div class="col-12 m-3"><button type="submit" class="rounded btn-blue p-2"><h4 class="m-0">Reserver</h6></button></div>
+                        </div>
+                        
                     </form>
                     
                 
                     
+                </div>
+                <div id="SloganWindow"class="animated hiding content cover bg-light animated" data-animation="fadeInRight" data-delay="600">
+                    <button id="btn-link"> Reserver votre séance</button>
                 </div>
             </div>
         </div>
@@ -278,6 +302,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.appear/0.3.3/jquery.appear.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/venobox/1.8.2/venobox.min.js"></script>
     <script src="{{asset('js/script.js?v=1.0')}}"></script>
+    <script src="{{asset('js/app.js')}}"></script>
+    <script src="{{asset('js/test.js')}}"></script>
   
     <!-- Google Analytics: change UA-25089888-9 to be your site's ID. -->
     <script>

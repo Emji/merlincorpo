@@ -389,26 +389,72 @@ a:focus {
 }
 
 #SessionForm .content {
-    margin-bottom: 0;
+        margin-top: 8rem;
+        margin-bottom: 8rem;
+}
+#formWindow {
+    box-shadow: 3px 3px 12px rgba(0, 0, 0, 0.1);
 }
 #SessionForm form {
     width: 100%;
     background-color: white;
-    border: solid 1px;
+    border: solid 1px rgba(0,0,0,0.1);
     box-sizing: border-box;
-    border-radius: 1em;
-    margin-bottom: 5em;
+    display: flex;
+    flex-direction: column;
 }
+.newsletterChecForm {
+    display: flex;
+    margin-left: 20px;
+    align-items: center;
+    justify-content: flex-end;
+}
+.newsletterChecForm input {
+    margin-right: 5px;
+}
+.newsletterChecForm p {
+    margin-right: 10px;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important
+}
+#SessionForm form button {
+
+    border: none;
+    box-shadow: 5px 3px 12px rgba(0, 0, 0, 0.2);
+}
+
+.AnimatedForm {
+    animation-duration: 2s;
+    animation-name: Appear;
+    
+}
+
+@keyframes Appear {
+    from { 
+        opacity:0;
+        
+    }
+    to { 
+        opacity: 1;
+    }
+}
+
 #SessionForm form .contentForm {
     width: 100%;
     box-sizing: border-box;
     padding: 30px;
     display: flex;
 }
+#SessionForm form .contentForm label{
+    margin-bottom: 0 !important;
+}
 #SessionForm form .contentForm input{
-    border-style:inset !important;
-    border: none;
-    border-bottom: solid 1px;
+    
+    border-bottom: 1px solid rgba(0,0,0,0.2);
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    width:60%;
 }
 
 #contact {

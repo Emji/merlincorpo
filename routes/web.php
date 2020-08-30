@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::resource('/', 'HomeController');
+Route::post('/store', 'HomeController@store');
 
 
 Auth::routes();

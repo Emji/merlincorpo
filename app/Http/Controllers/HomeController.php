@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use  Image;
 use App\photo;
+use App\newsletter;
+use App\client;
+use App\session;
 use App\Heure;
 use Storage;
 
@@ -39,8 +42,54 @@ class HomeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        //
+    {   
+        $AllSessions = session::all();
+        $session = $AllSessions->last();
+
+        $heures = Heure::all();
+        $heure = $heures->where('id',$request->heure)->first();
+        $heure->taken = true;
+        $heure->save();
+
+        $client = new client;
+
+        $client->name = $request->name;
+        $client->forname = $request->forname;
+        $client->mail = $request->mail;
+        $client->phone = $request->phone;
+        $client->heure_id = $heure->id;
+        $client->session_id = $session->id;
+        $client->save();
+
+
+        if($request->newsletter = true)
+            {
+        
+            $collection = newsletter::all();
+        
+                if($collection->contains('mail',$request->mail)){
+
+                    //nothing happen
+
+                }else
+                    {
+                        $newsletter= new newsletter;
+                        $newsletter->mail = $request->mail;
+                        $newsletter->save();            
+                        }
+        
+            
+            }
+
+
+        return redirect()->back();
+
+
+            
+
+
+
+        
     }
 
     /**

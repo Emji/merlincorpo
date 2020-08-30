@@ -18,7 +18,7 @@ class CreateClientsTable extends Migration
             $table->string('name');
             $table->string('forname');
             $table->string('mail');
-            $table->integer('phone');
+            $table->string('phone');
             $table->unsignedBigInteger('heure_id')->unsigned();
             $table->foreign('heure_id')->references('id')->on('heures');
             $table->unsignedBigInteger('session_id')->unsigned();
