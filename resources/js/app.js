@@ -7,6 +7,10 @@
 // require('./bootstrap');
 
 
+
+
+window.Axios = require('axios').default;
+
 window.Vue = require('vue');
 
 /**

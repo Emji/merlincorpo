@@ -388,13 +388,13 @@ a:focus {
     border-color: #fff;
 }
 
-#SessionForm .content {
-        margin-top: 8rem;
-        margin-bottom: 8rem;
+#SessionForm .boxsection {
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
-#formWindow {
-    box-shadow: 3px 3px 12px rgba(0, 0, 0, 0.1);
-}
+
 #SessionForm form {
     width: 100%;
     background-color: white;
@@ -402,6 +402,7 @@ a:focus {
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
+    box-shadow: 3px 3px 12px rgba(0, 0, 0, 0.1);
 }
 .newsletterChecForm {
     display: flex;

@@ -174,12 +174,13 @@
     </section>
     <section id="SessionForm" class="page">
         <div class="container">
-            <div class="content text-center">
-                <div><h3>ceci est un formulaire </h3></div>
+            <div><h3>ceci est un formulaire </h3></div>
+            <div class="boxsection text-center">
+                
                 <div id="app">
                 <example-component></example-component>
                 </div>
-                <div id="formWindow" class="d-none content cover row justify-content-center ">
+               {{-- <div id="formWindow" class="d-none content cover row justify-content-center ">
                    
                 <form url='/store' method="post" enctype="multipart/form-data">
                     @csrf
@@ -233,7 +234,7 @@
                 </div>
                 <div id="SloganWindow"class="animated hiding content cover bg-light animated" data-animation="fadeInRight" data-delay="600">
                     <button id="btn-link"> Reserver votre séance</button>
-                </div>
+                </div> --}}
             </div>
         </div>
     </section>
@@ -303,7 +304,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/venobox/1.8.2/venobox.min.js"></script>
     <script src="{{asset('js/script.js?v=1.0')}}"></script>
     <script src="{{asset('js/app.js')}}"></script>
-    <script src="{{asset('js/test.js')}}"></script>
+    {{-- <script src="{{asset('js/test.js')}}"></script> --}}
   
     <!-- Google Analytics: change UA-25089888-9 to be your site's ID. -->
     <script>

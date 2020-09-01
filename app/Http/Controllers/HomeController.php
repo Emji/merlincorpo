@@ -22,6 +22,7 @@ class HomeController extends Controller
     {
         $photos=photo::all();
         $heures=Heure::all();
+        
         return view('welcome',compact('photos','heures'));
     }
 
@@ -43,50 +44,51 @@ class HomeController extends Controller
      */
     public function store(Request $request)
     {   
-        $AllSessions = session::all();
-        $session = $AllSessions->last();
 
-        $heures = Heure::all();
-        $heure = $heures->where('id',$request->heure)->first();
-        $heure->taken = true;
-        $heure->save();
-
-        $client = new client;
-
-        $client->name = $request->name;
-        $client->forname = $request->forname;
-        $client->mail = $request->mail;
-        $client->phone = $request->phone;
-        $client->heure_id = $heure->id;
-        $client->session_id = $session->id;
-        $client->save();
-
-
-        if($request->newsletter = true)
-            {
+        $reponse = $request;
         
-            $collection = newsletter::all();
+
+        // $heures = Heure::all();
+        // $heure = $heures->where('id',$request->heure)->first();
+        // $heure->taken = true;
+        // $heure->save();
+
+        // $client = new client;
+
+        // $client->name = $request->name;
+        // $client->forname = $request->forname;
+        // $client->mail = $request->mail;
+        // $client->phone = $request->phone;
+        // $client->heure_id = $heure->id;
+        // $client->session_id = $session->id;
+        // $client->save();
+
+
+        // if($request->newsletter = true)
+        //     {
         
-                if($collection->contains('mail',$request->mail)){
+        //     $collection = newsletter::all();
+        
+        //         if($collection->contains('mail',$request->mail)){
 
-                    //nothing happen
+        //             //nothing happen
 
-                }else
-                    {
-                        $newsletter= new newsletter;
-                        $newsletter->mail = $request->mail;
-                        $newsletter->save();            
-                        }
+        //         }else
+        //             {
+        //                 $newsletter= new newsletter;
+        //                 $newsletter->mail = $request->mail;
+        //                 $newsletter->save();            
+        //                 }
         
             
-            }
+        //     }
 
 
-        return redirect()->back();
+        // return redirect()->back();
 
 
             
-
+            return response()->json($reponse);
 
 
         
@@ -135,5 +137,12 @@ class HomeController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function Form(){
+
+        $heures = Heure::all();
+
+        return response()->json($heures);
     }
 }
