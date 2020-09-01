@@ -116,7 +116,9 @@
                                     <a data-filter=".web" href="#">Web</a>
                                 </li>
                             </ul> --}}
-                           
+                           {{-- <div id="opp">
+                               <image-component></image-component>
+                           </div> --}}
                             <ul class="items list-unstyled clearfix animated hiding mb-0" data-animation="fadeInRight">
                                 @foreach($photos as $photo)
                                 <li class="item branding">
@@ -174,67 +176,17 @@
     </section>
     <section id="SessionForm" class="page">
         <div class="container">
-            <div><h3>ceci est un formulaire </h3></div>
+            <div>
+                <h3 class="text-center mt-5">ceci est un formulaire </h3>
+                <p class="m-2 mt-4 text-justify">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatum, architecto. Aliquam eius nemo omnis eaque delectus ut itaque natus eveniet consectetur vel veritatis officia tempore aperiam dolorum debitis, temporibus sit.Pariatur possimus officiis fugit vitae, consequatur voluptates quisquam nostrum, ipsam perspiciatis quo, aperiam voluptatibus cum id quidem sunt sint harum minus delectus? Et quia quisquam rem, autem quam nemo? Rerum.</p>
+            </div>
+
             <div class="boxsection text-center">
-                
+                {{-- formulaire en vue JS  --}}
                 <div id="app">
                 <example-component></example-component>
                 </div>
-               {{-- <div id="formWindow" class="d-none content cover row justify-content-center ">
-                   
-                <form url='/store' method="post" enctype="multipart/form-data">
-                    @csrf
-                    @method("POST")
-                        <div class="contentForm row">
-                            <div class="col-2 d-flex align-items-center">
-                                <div>                              
-                                    <label for="heure"> choissisez votre heure</label>
-                                    <select name="heure" id="">
-                                        @foreach($heures as $heure)
-                                        <option value="{{$heure->id}}"@if($heure->taken)disabled @endif>@if($heure->taken)Indisponible @else{{$heure->heure}}@endif</option>
-                                        @endforeach
-                                    </select>
-                                </div> 
-                            </div>
-                            <div class="col-1"></div>
-                            <div class="col-4 d-flex flex-column">
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <label for="name" class="m-3"> Nom :</label>
-                                    <input required type="text" name="name" class="m-3">
-                                </div>
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <label for="forname" class="m-3"> Prénom :</label>
-                                    <input required type="text" name="forname" class="m-3">
-                                </div>
-                            </div>
-                            <div class="col-5 d-flex flex-column">
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <label for="mail" class="m-3"> Email :</label>
-                                    <input required type="email" name="mail" class="m-3">
-                                </div>
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <label for="mail" class="m-3"> Number :</label>
-                                    <input required type="tel" name="phone"class="m-3" id="">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="newsletterChecForm">
-                                <input type="checkbox" checked name="newsletter" id="">
-                                <p>Voulez vous vous inscrire à la newsletter ?</p>
-
-                        </div>
-                        <div class="row">
-                            <div class="col-12 m-3"><button type="submit" class="rounded btn-blue p-2"><h4 class="m-0">Reserver</h6></button></div>
-                        </div>
-                        
-                    </form>
-                    
-                
-                    
-                </div>
-                <div id="SloganWindow"class="animated hiding content cover bg-light animated" data-animation="fadeInRight" data-delay="600">
-                    <button id="btn-link"> Reserver votre séance</button>
-                </div> --}}
+              
             </div>
         </div>
     </section>

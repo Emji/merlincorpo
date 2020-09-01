@@ -2000,7 +2000,7 @@ __webpack_require__.r(__webpack_exports__);
       forname: "",
       phone: "",
       newsletter: true,
-      error: false
+      fail: false
     };
   },
   methods: {
@@ -2011,10 +2011,12 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.post("/store").then(function (response) {
+        console.log(response.data);
         _this.confirmed = true;
         _this.formulaire = false;
       })["catch"](function (error) {
-        this.error = true;
+        this.fail = true;
+        console.log(error);
       });
     },
     Newsletter: function Newsletter() {
@@ -3166,7 +3168,7 @@ var render = function() {
       _c("transition", { attrs: { name: "slide-fade", mode: "out-in" } }, [
         _vm.formulaire == 1 && _vm.confirmed == 0
           ? _c(
-              "section",
+              "div",
               {
                 key: _vm.formulaire == 1 && _vm.confirmed == 0,
                 staticClass: "row justify-content-center",
@@ -3179,7 +3181,7 @@ var render = function() {
                 }
               },
               [
-                _vm.error
+                _vm.fail
                   ? _c("div", [_vm._v("Il y a eu une erreur")])
                   : _vm._e(),
                 _vm._v(" "),
@@ -3477,13 +3479,17 @@ var render = function() {
           ? _c("div", { key: _vm.formulaire == 0 && _vm.confirmed == 0 }, [
               _c(
                 "button",
-                { attrs: { id: "btn-link" }, on: { click: _vm.showForm } },
+                {
+                  staticClass: "btn btn-blue",
+                  attrs: { id: "btn-link" },
+                  on: { click: _vm.showForm }
+                },
                 [_vm._v("Reserver votre séance")]
               )
             ])
           : _vm.formulaire == 0 && _vm.confirmed == 1
           ? _c("div", { key: _vm.formulaire == 0 && _vm.confirmed == 1 }, [
-              _c("h6", { staticClass: "text-success" }, [
+              _c("h3", { staticClass: "text-success" }, [
                 _vm._v("Vous avez reservé votre séance")
               ])
             ])
@@ -15654,7 +15660,8 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
-Vue.component('example-component', __webpack_require__(/*! ./components/ExampleComponent.vue */ "./resources/js/components/ExampleComponent.vue")["default"]);
+Vue.component('example-component', __webpack_require__(/*! ./components/ExampleComponent.vue */ "./resources/js/components/ExampleComponent.vue")["default"]); // Vue.component('image-component', require('./components/ImageComponent.vue').default);
+
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -15663,7 +15670,9 @@ Vue.component('example-component', __webpack_require__(/*! ./components/ExampleC
 
 var app = new Vue({
   el: '#app'
-});
+}); // const opp = new Vue({
+//     el: '#opp',
+// });
 
 /***/ }),
 

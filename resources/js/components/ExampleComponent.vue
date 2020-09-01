@@ -1,14 +1,14 @@
 <template>
   <div>
     <transition name="slide-fade" mode="out-in">
-      <section
+      <div
         v-if="formulaire == 1 && confirmed == 0"
         :key="formulaire == 1 && confirmed == 0"
         id="formWindow"
         @submit.prevent="sendForm()"
         class="row justify-content-center"
       >
-        <div v-if="error">Il y a eu une erreur</div>
+        <div v-if="fail">Il y a eu une erreur</div>
         <form url="/store" method="post" enctype="multipart/form-data">
           <div class="contentForm row">
             <div class="col-sm-2 d-flex align-items-center">
@@ -64,12 +64,12 @@
             </div>
           </div>
         </form>
-      </section>
+      </div>
       <div v-else-if="formulaire == 0 && confirmed == 0" :key="formulaire == 0 && confirmed == 0">
-        <button v-on:click="showForm" id="btn-link">Reserver votre séance</button>
+        <button v-on:click="showForm" id="btn-link" class="btn btn-blue">Reserver votre séance</button>
       </div>
       <div v-else-if="formulaire == 0 && confirmed == 1" :key="formulaire == 0 && confirmed == 1">
-        <h6 class="text-success">Vous avez reservé votre séance</h6>
+        <h3 class="text-success">Vous avez reservé votre séance</h3>
       </div>
     </transition>
   </div>
@@ -90,7 +90,7 @@ export default {
       forname: "",
       phone: "",
       newsletter: true,
-      error: false,
+      fail: false,
     };
   },
   methods: {
@@ -101,11 +101,13 @@ export default {
       axios
         .post("/store")
         .then((response) => {
+          console.log(response.data);
           this.confirmed = true;
           this.formulaire = false;
         })
         .catch(function (error) {
-          this.error = true;
+          this.fail = true;
+          console.log(error);
         });
     },
     Newsletter: function () {
