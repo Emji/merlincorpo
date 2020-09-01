@@ -1,77 +1,93 @@
 <template>
   <div>
-    <transition name="slide-fade" mode="out-in">
-      <div
-        v-if="formulaire == 1 && confirmed == 0"
-        :key="formulaire == 1 && confirmed == 0"
-        id="formWindow"
-        @submit.prevent="sendForm()"
-        class="row justify-content-center"
-      >
-        <div v-if="fail">Il y a eu une erreur</div>
-        <form url="/store" method="post" enctype="multipart/form-data">
-          <div class="contentForm row">
-            <div class="col-sm-2 d-flex align-items-center">
-              <div>
-                <label for="heure" class="m-sm-0 m-3">choissisez votre heure</label>
+    <div v-if="!complete">
+      <!-- visible s'il y a encore des places de disponibles -->
 
-                <select v-model="heure_id" name="heure" class="m-sm-0 m-3">
-                  <option
-                    v-for="(heure,index) in heures"
-                    :key="index"
-                    :value="heure.id"
-                    :disabled="heure.taken== 1"
-                  >{{heure.heure}}</option>
-                </select>
+      <transition name="slide-fade" mode="out-in">
+        <div
+          v-if="formulaire == 1 && confirmed == 0"
+          :key="formulaire == 1 && confirmed == 0"
+          id="formWindow"
+          @submit.prevent="sendForm()"
+          class="row justify-content-center"
+        >
+          <div v-if="fail">Il y a eu une erreur</div>
+
+          <!-- début du formulaire -->
+
+          <form url="/store" method="post" enctype="multipart/form-data">
+            <div class="contentForm row">
+              <div class="col-sm-2 d-flex align-items-center">
+                <div>
+                  <label for="heure" class="m-sm-0 m-3">choissisez votre heure</label>
+
+                  <select v-model="heure_id" name="heure" class="m-sm-0 m-3">
+                    <option
+                      v-for="(heure,index) in heures"
+                      :key="index"
+                      :value="heure.id"
+                      :disabled="heure.taken== 1"
+                    >{{heure.heure}}</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-sm-1"></div>
+              <div class="col-sm-4 d-flex flex-column">
+                <div class="d-flex justify-content-between align-items-center">
+                  <label for="name" class="m-3">Nom :</label>
+                  <input v-model="name" required type="text" name="name" class="m-3" />
+                </div>
+                <div class="d-flex justify-content-between align-items-center">
+                  <label for="forname" class="m-3">Prénom :</label>
+                  <input required type="text" v-model="forname" name="forname" class="m-3" />
+                </div>
+              </div>
+              <div class="col-sm-5 d-flex flex-column">
+                <div class="d-flex justify-content-between align-items-center">
+                  <label for="mail" class="m-3">Email :</label>
+                  <input required type="email" v-model="mail" name="mail" class="m-3" />
+                </div>
+                <div class="d-flex justify-content-between align-items-center">
+                  <label for="mail" class="m-3">Number :</label>
+                  <input required type="tel" v-model="phone" name="phone" class="m-3" />
+                </div>
               </div>
             </div>
-            <div class="col-sm-1"></div>
-            <div class="col-sm-4 d-flex flex-column">
-              <div class="d-flex justify-content-between align-items-center">
-                <label for="name" class="m-3">Nom :</label>
-                <input v-model="name" required type="text" name="name" class="m-3" />
-              </div>
-              <div class="d-flex justify-content-between align-items-center">
-                <label for="forname" class="m-3">Prénom :</label>
-                <input required type="text" v-model="forname" name="forname" class="m-3" />
+            <div class="newsletterChecForm">
+              <input
+                @click="Newsletter()"
+                type="checkbox"
+                :checked="newsletter == 1"
+                name="newsletter"
+              />
+              <p>Voulez vous vous inscrire à la newsletter ?</p>
+            </div>
+            <div class="row">
+              <div class="col-sm-12 m-3">
+                <button type="submit" class="rounded btn-blue p-2">
+                  <h4 class="m-0">Réserver</h4>
+                </button>
               </div>
             </div>
-            <div class="col-sm-5 d-flex flex-column">
-              <div class="d-flex justify-content-between align-items-center">
-                <label for="mail" class="m-3">Email :</label>
-                <input required type="email" v-model="mail" name="mail" class="m-3" />
-              </div>
-              <div class="d-flex justify-content-between align-items-center">
-                <label for="mail" class="m-3">Number :</label>
-                <input required type="tel" v-model="phone" name="phone" class="m-3" />
-              </div>
-            </div>
-          </div>
-          <div class="newsletterChecForm">
-            <input
-              @click="Newsletter()"
-              type="checkbox"
-              :checked="newsletter == 1"
-              name="newsletter"
-            />
-            <p>Voulez vous vous inscrire à la newsletter ?</p>
-          </div>
-          <div class="row">
-            <div class="col-sm-12 m-3">
-              <button type="submit" class="rounded btn-blue p-2">
-                <h4 class="m-0">Reserver</h4>
-              </button>
-            </div>
-          </div>
-        </form>
-      </div>
-      <div v-else-if="formulaire == 0 && confirmed == 0" :key="formulaire == 0 && confirmed == 0">
-        <button v-on:click="showForm" id="btn-link" class="btn btn-blue">Reserver votre séance</button>
-      </div>
-      <div v-else-if="formulaire == 0 && confirmed == 1" :key="formulaire == 0 && confirmed == 1">
-        <h3 class="text-success">Vous avez reservé votre séance</h3>
-      </div>
-    </transition>
+          </form>
+        </div>
+        <!-- boutton d entrée du formulaire  -->
+        <div v-else-if="formulaire == 0 && confirmed == 0" :key="formulaire == 0 && confirmed == 0">
+          <button v-on:click="showForm" id="btn-link" class="btn btn-blue">Réserver votre séance</button>
+        </div>
+
+        <!-- fin du formulaire apres reservation -->
+
+        <div v-else-if="formulaire == 0 && confirmed == 1" :key="formulaire == 0 && confirmed == 1">
+          <h3 class="text-success">Vous avez réservé votre séance</h3>
+        </div>
+      </transition>
+    </div>
+    <!-- fin du formulaire -->
+
+    <!-- Div visible si le formulaire est complet -->
+
+    <div v-else>la session du est complete</div>
   </div>
 </template>
 
@@ -91,6 +107,7 @@ export default {
       phone: "",
       newsletter: true,
       fail: false,
+      complete: false,
     };
   },
   methods: {
@@ -99,7 +116,14 @@ export default {
     },
     sendForm: function () {
       axios
-        .post("/store")
+        .post("/store", {
+          heure_id: this.heure_id,
+          mail: this.mail,
+          name: this.name,
+          forname: this.forname,
+          phone: this.phone,
+          newsletter: this.newsletter,
+        })
         .then((response) => {
           console.log(response.data);
           this.confirmed = true;
@@ -116,7 +140,8 @@ export default {
   },
   mounted() {
     axios.get("/heures").then((response) => {
-      this.heures = response.data;
+      this.heures = response.data[0];
+      this.complete = response.data[1];
     });
   },
 };

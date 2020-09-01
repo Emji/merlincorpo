@@ -21,9 +21,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $photos=photo::all();
-        $heures=Heure::all();
-        
+        $photos= photo::all();
+        $heures= Heure::all();
+       
         return view('welcome',compact('photos','heures'));
     }
 
@@ -43,14 +43,14 @@ class HomeController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request,Heure $heures,session $allSession)
     {   
 
-
-        $heures = Heure::all();
-        $heure = $heures->where('id',$request->heure)->first();
+        $heures=Heure::all();
+        $heure = $heures->where('id',$request->heure_id)->first();
         $heure->taken = true;
         $heure->save();
+        
 
         $allSession = session::all();
         $session = $allSession->last();
@@ -87,29 +87,30 @@ class HomeController extends Controller
             }
 
           
-            // $data=array(
-            //     'mail'=>$request->mail,
-            //     'name'=>$request->name,
-            //     'forname'=>$request->forname,
-            //     'date'=>$session->date,
+            $data=array(
+                'mail'=>$request->mail,
+                'name'=>$request->name,
+                'forname'=>$request->forname,
+                'date'=>$session->date,
+                'heure'=>$heure->heure,
 
-            // );
+            );
       
-            // Mail::send('mails.ConfirmationMail',$data, function ($message) use($data)
-            // {
+            Mail::send('mails.ConfirmationMail',$data, function ($message) use($data)
+            {
                
-            //     $message->from('j59b4e434f2-8a85cb@inbox.mailtrap.io');
-            //     $message->to('j59b4e434f2-8a85cb@inbox.mailtrap.io');
-            //     // $message->to($data['mail']);
-            //     $message->setBody($data);
+                $message->from('j59b4e434f2-8a85cb@inbox.mailtrap.io');
+                $message->to('j59b4e434f2-8a85cb@inbox.mailtrap.io');
+                // $message->to($data['mail']);
+                $message->setBody($data);
 
         
-            // });
+            });
 
-         
+        
 
             
-            return response()->json($request);
+            return response()->json();
 
 
         
@@ -163,7 +164,8 @@ class HomeController extends Controller
     public function Form(){
 
         $heures = Heure::all();
+        $isFull = Heure::IsFull();
 
-        return response()->json($heures);
+        return response()->json([$heures,$isFull]);
     }
 }
