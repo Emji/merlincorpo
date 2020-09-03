@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::resource('/', 'HomeController');
 Route::post('/store', 'HomeController@store');
 Route::get('/heures','HomeController@Form');
+Route::post('/newsletter', 'HomeController@RegisterNewsletter');
 
 
 Auth::routes();

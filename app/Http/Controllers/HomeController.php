@@ -10,6 +10,7 @@ use App\client;
 use App\session;
 use App\Heure;
 use Storage;
+
 use Illuminate\Support\Facades\Mail;
 
 class HomeController extends Controller
@@ -23,8 +24,10 @@ class HomeController extends Controller
     {
         $photos= photo::all();
         $heures= Heure::all();
+        $allSession = session::all();
+        $session = session::NextSession();
        
-        return view('welcome',compact('photos','heures'));
+        return view('welcome',compact('photos','heures','session'));
     }
 
     /**
@@ -80,10 +83,19 @@ class HomeController extends Controller
                     {
                         $newsletter= new newsletter;
                         $newsletter->mail = $request->mail;
-                        $newsletter->save();            
+                        $newsletter->save(); 
+                        $data=array(
+                            'mail'=>$request->mailnewsletter,
+                            );
+
+                            Mail::send('mails.ConfirmationRegisteredNewsletter',$data, function ($message) use($data)
+                            {
+                            
+                                $message->from('j59b4e434f2-8a85cb@inbox.mailtrap.io');
+                                $message->to('j59b4e434f2-8a85cb@inbox.mailtrap.io');
+                            });           
                         }
         
-            
             }
 
           
@@ -165,7 +177,42 @@ class HomeController extends Controller
 
         $heures = Heure::all();
         $isFull = Heure::IsFull();
+       
+        $session = session::NextSession();
 
-        return response()->json([$heures,$isFull]);
+        return response()->json([$heures,$isFull,$session]);
+    }
+
+    public function RegisterNewsletter(Request $request){
+
+        
+
+        $allNewsletter = newsletter::all();
+        if($allNewsletter->contains('mail',$request->mailnewsletter)){
+
+            $AlreadyRegistered="Vous êtes deja inscrit à la newsletter";
+
+            return response()->json($AlreadyRegistered);
+
+        }else{
+        $mail = $request->mailnewsletter;
+        $newsletter = new newsletter;
+        $newsletter->mail = $mail;
+        $newsletter->save();
+
+        $data=array(
+            'mail'=>$request->mailnewsletter,
+            );
+
+            Mail::send('mails.ConfirmationRegisteredNewsletter',$data, function ($message) use($data)
+            {
+               
+                $message->from('j59b4e434f2-8a85cb@inbox.mailtrap.io');
+                $message->to('j59b4e434f2-8a85cb@inbox.mailtrap.io');
+            });
+            $Registered = "Vous vous êtes bien inscrit à la newsletter";
+        return response()->json($Registered);
+
+        }
     }
 }

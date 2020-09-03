@@ -10,4 +10,12 @@ class session extends Model
 
        return  $this->hasMany('App\client','session_id','id');
     }
+
+    static function NextSession(){
+
+        $allSession = session::all();
+        $session = $allSession->last();
+
+        return $session;
+    }
 }

@@ -1,4 +1,4 @@
-<p>Ceci est un mail </p>
+
 
 <p>Bonjour {{$name}} {{$forname}}</p>
 

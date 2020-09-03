@@ -2003,6 +2003,54 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -2015,9 +2063,13 @@ __webpack_require__.r(__webpack_exports__);
       name: "",
       forname: "",
       phone: "",
+      session: "",
       newsletter: true,
       fail: false,
-      complete: false
+      complete: false,
+      mailnewsletter: "",
+      RegisteredNewsletter: false,
+      RegisteredMessage: ""
     };
   },
   methods: {
@@ -2045,14 +2097,26 @@ __webpack_require__.r(__webpack_exports__);
     },
     Newsletter: function Newsletter() {
       this.newsletter = !this.newsletter;
+    },
+    // s enregistrer a la newsletter
+    RegisterNewsletter: function RegisterNewsletter() {
+      var _this2 = this;
+
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.post("/newsletter", {
+        mailnewsletter: this.mailnewsletter
+      }).then(function (response) {
+        _this2.RegisteredNewsletter = true;
+        _this2.RegisteredMessage = response.data;
+      })["catch"](function (error) {});
     }
   },
   mounted: function mounted() {
-    var _this2 = this;
+    var _this3 = this;
 
     axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("/heures").then(function (response) {
-      _this2.heures = response.data[0];
-      _this2.complete = response.data[1];
+      _this3.heures = response.data[0];
+      _this3.complete = response.data[1];
+      _this3.session = response.data[2].date;
     });
   }
 });
@@ -2071,7 +2135,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".slide-fade-enter-active {\n  transition: all 0.3s ease;\n}\n.slide-fade-leave-active {\n  transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);\n}\n.slide-fade-enter, .slide-fade-leave-to {\n  transform: translateX(100px);\n  opacity: 0;\n}", ""]);
+exports.push([module.i, ".slide-fade-enter-active {\n  transition: all 0.3s ease;\n}\n.slide-fade-leave-active {\n  transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);\n}\n.slide-fade-enter, .slide-fade-leave-to {\n  transform: translateX(100px);\n  opacity: 0;\n}\n.opacity-out-enter-active {\n  transition: all 0.3s ease;\n}\n.opacity-out-leave-active {\n  transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);\n}\n.opacity-out-enter, .slide-fade-leave-to {\n  opacity: 0;\n}", ""]);
 
 // exports
 
@@ -3198,17 +3262,11 @@ var render = function() {
               [
                 _vm.formulaire == 1 && _vm.confirmed == 0
                   ? _c(
-                      "div",
+                      "section",
                       {
                         key: _vm.formulaire == 1 && _vm.confirmed == 0,
                         staticClass: "row justify-content-center",
-                        attrs: { id: "formWindow" },
-                        on: {
-                          submit: function($event) {
-                            $event.preventDefault()
-                            return _vm.sendForm()
-                          }
-                        }
+                        attrs: { id: "formWindow" }
                       },
                       [
                         _vm.fail
@@ -3222,6 +3280,12 @@ var render = function() {
                               url: "/store",
                               method: "post",
                               enctype: "multipart/form-data"
+                            },
+                            on: {
+                              submit: function($event) {
+                                $event.preventDefault()
+                                return _vm.sendForm()
+                              }
                             }
                           },
                           [
@@ -3562,10 +3626,136 @@ var render = function() {
           ],
           1
         )
-      : _c("div", [_vm._v("la session du est complete")])
+      : _c(
+          "div",
+          { staticClass: "d-flex justify-content-center align-items-center" },
+          [
+            _c("div", { staticClass: "bg-white box-message row" }, [
+              _c(
+                "div",
+                { staticClass: "col-12" },
+                [
+                  _c("div", [
+                    _c("h3", { staticClass: "text-center" }, [
+                      _vm._v(
+                        "La session du " +
+                          _vm._s(_vm.session) +
+                          " est malheureusement complète"
+                      )
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _vm._m(0),
+                  _vm._v(" "),
+                  _c(
+                    "transition",
+                    { attrs: { name: "opacity-out", mode: "out-in" } },
+                    [
+                      !_vm.RegisteredNewsletter
+                        ? _c(
+                            "form",
+                            {
+                              staticClass: "p-3 box-shadow-none",
+                              attrs: { action: "/newsletter", method: "post" },
+                              on: {
+                                submit: function($event) {
+                                  $event.preventDefault()
+                                  return _vm.RegisterNewsletter()
+                                }
+                              }
+                            },
+                            [
+                              _c("div", { staticClass: "row" }, [
+                                _c("div", { staticClass: "col-12" }, [
+                                  _c(
+                                    "div",
+                                    {
+                                      staticClass:
+                                        "d-flex justify-content-center"
+                                    },
+                                    [
+                                      _c("input", {
+                                        directives: [
+                                          {
+                                            name: "model",
+                                            rawName: "v-model",
+                                            value: _vm.mailnewsletter,
+                                            expression: "mailnewsletter"
+                                          }
+                                        ],
+                                        staticClass: "w-75 mt-1",
+                                        attrs: {
+                                          requiered: "",
+                                          type: "email",
+                                          value: "mail",
+                                          name: "mail",
+                                          placeholder:
+                                            "Veuillez inscrire votre email ici"
+                                        },
+                                        domProps: { value: _vm.mailnewsletter },
+                                        on: {
+                                          input: function($event) {
+                                            if ($event.target.composing) {
+                                              return
+                                            }
+                                            _vm.mailnewsletter =
+                                              $event.target.value
+                                          }
+                                        }
+                                      })
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c("div", { staticClass: "m-3" }, [
+                                    _c(
+                                      "button",
+                                      {
+                                        staticClass: "btn btn-blue rounded",
+                                        attrs: { type: "submit" }
+                                      },
+                                      [_vm._v("S'inscrire a la newsletter")]
+                                    )
+                                  ])
+                                ])
+                              ])
+                            ]
+                          )
+                        : _c(
+                            "div",
+                            {
+                              staticClass:
+                                "d-flex align-items-center justify-content-center"
+                            },
+                            [
+                              _c("h3", { staticClass: "text-success" }, [
+                                _vm._v(_vm._s(_vm.RegisteredMessage))
+                              ])
+                            ]
+                          )
+                    ]
+                  )
+                ],
+                1
+              )
+            ])
+          ]
+        )
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "mt-3" }, [
+      _c("p", { staticClass: "text-center m-0" }, [
+        _vm._v(
+          "Pour connaitre la date de la prochaine session n,hésitez pas à vous inscrire à notre newsletter"
+        )
+      ])
+    ])
+  }
+]
 render._withStripped = true
 
 

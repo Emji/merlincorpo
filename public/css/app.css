@@ -10920,3 +10920,17 @@ a.text-dark:focus {
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
+.bg-white {
+  background-color: white;
+}
+
+.box-message {
+  padding: 30px;
+  width: 100%;
+}
+
+.box-shadow-none {
+  box-shadow: 0 0 0 !important;
+  border: none !important;
+}
+
