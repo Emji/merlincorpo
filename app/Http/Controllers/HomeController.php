@@ -215,4 +215,12 @@ class HomeController extends Controller
 
         }
     }
+    public function Pictures(){
+
+      
+        $pictures = photo::all();
+
+        return response()->json($pictures);
+
+    }
 }

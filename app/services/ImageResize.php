@@ -17,7 +17,9 @@ class ImageResize {
 
             $image = $file->store('','public'); 
             $file->store('','photo'); 
-            $newimg= Image::make(Storage::disk('photo')->path($image))->resize(1440);
+            $newimg= Image::make(Storage::disk('photo')->path($image))->resize(1440,null,function($constrain){
+               $constrain->aspectRatio();
+            });
             $newimg->save();
          
  

@@ -17,6 +17,7 @@ Route::resource('/', 'HomeController');
 Route::post('/store', 'HomeController@store');
 Route::get('/heures','HomeController@Form');
 Route::post('/newsletter', 'HomeController@RegisterNewsletter');
+Route::get('/pictures', 'HomeController@Pictures');
 
 
 Auth::routes();

@@ -27,6 +27,7 @@
 </head>
 
 <body>
+<div id="app">
     <div class="loader">
         <div class="loading"></div>
     </div>
@@ -116,10 +117,8 @@
                                     <a data-filter=".web" href="#">Web</a>
                                 </li>
                             </ul> --}}
-                           {{-- <div id="opp">
-                               <image-component></image-component>
-                           </div> --}}
-                            <ul class="items list-unstyled clearfix animated hiding mb-0" data-animation="fadeInRight">
+
+                            {{-- <ul class="items list-unstyled clearfix animated hiding mb-0" data-animation="fadeInRight">
                                 @foreach($photos as $photo)
                                 <li class="item branding">
                                     <a href="{{Storage::disk('photo')->url($photo->image)}}" data-gall="work" data-vbtype="ajax" class="venobox">
@@ -130,7 +129,12 @@
                                     </a>
                                 </li>
                                 @endforeach
-                            </ul>
+                            </ul> --}}
+
+                            {{-- COMPONENT VUEJS POUR IMAGE !!--}}
+
+                            <image-component></image-component>
+
 
                         
                     </div>
@@ -183,9 +187,9 @@
 
             <div class="boxsection text-center">
                 {{-- formulaire en vue JS  --}}
-                <div id="app">
+                
                 <example-component></example-component>
-                </div>
+               
               
             </div>
         </div>
@@ -245,6 +249,7 @@
             </div>
         </div>
     </footer>
+    </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
@@ -268,6 +273,6 @@
         ga('create','UA-25089888-9');ga('send','pageview');
     </script>
  
-  
+
 </body>
 </html>
