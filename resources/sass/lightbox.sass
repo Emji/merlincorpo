@@ -1,8 +1,8 @@
 .portfolio-img
     cursor: pointer
 .lightbox
-    display: none
     position: absolute
+    position: fixed
     top: 0
     left: 0
     width: 100vw
@@ -10,9 +10,9 @@
     background-color: white
     justify-content: center
     align-items: center
+    z-index: 9999
 .prev
     position: absolute
-    height: 100%
     left: 7%
     @media (max-width: 784px)
         bottom: 30px
@@ -25,22 +25,30 @@
     width: 100px
 .next
     position: absolute
-    height: 100%
     right: 7%
     @media (max-width: 784px)
         bottom: 30px
         height: auto
 .lightbox-img
     height: 100%
-    max-height: 100%
+    max-height: 75%
     max-width: 100%
+    align-items: center
+    display: flex
+    justify-content: center
     @media (max-width: 784px)
         height: auto
+.lightbox-image
+    max-width: 70%
+    height: auto
+    max-height: 90vh
 .close-box
     position: absolute
     top: 0
     right: 0
     padding: 30px
+    font-size: 3rem
+    cursor: pointer
     @media (max-width: 769px)
         top: 7%
         right: 3%

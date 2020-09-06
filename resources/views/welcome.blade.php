@@ -27,6 +27,7 @@
 </head>
 
 <body>
+   
 <div id="app">
     <div class="loader">
         <div class="loading"></div>
@@ -99,6 +100,14 @@
                     <div class="border"></div>
                     <p class="mt-4 mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa, alias enim placeat earum quos ab.</p>
                 </div>
+                <div class="lightbox d-none">
+                    <span class="close-box">X</span>
+                    <div class="lightbox-img">
+                        <button class="prev">Prev</button>
+                        <img src="" alt="" class="lightbox-image">
+                        <button class="next">Next</button>
+                    </div>
+                </div>
                 <div class="row">
                     <div class="col-md-12">
                       
@@ -117,32 +126,30 @@
                                     <a data-filter=".web" href="#">Web</a>
                                 </li>
                             </ul> --}}
-
-                            {{-- <ul class="items list-unstyled clearfix animated hiding mb-0" data-animation="fadeInRight">
+                           
+                            <ul class="items list-unstyled clearfix animated hiding mb-0" data-animation="fadeInRight">
                                 @foreach($photos as $photo)
                                 <li class="item branding">
-                                    <a href="{{Storage::disk('photo')->url($photo->image)}}" data-gall="work" data-vbtype="ajax" class="venobox">
-                                        <img class="portfolio-img" src="{{Storage::disk('photo')->url($photo->image)}}" alt="">
+                                    
+                                        <img class="portfolio-img" src="{{Storage::disk('photo')->url($photo->image)}}" alt="" value="{{ $loop->index }}">
                                         <div class="overlay">
                                             
                                         </div>
-                                    </a>
+                                   
                                 </li>
                                 @endforeach
-                            </ul> --}}
+                            </ul>
 
                             {{-- COMPONENT VUEJS POUR IMAGE !!--}}
 
-                            <image-component></image-component>
-
-
+                            {{-- <image-component></image-component> --}}
                         
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <section id="clients" class="page">
+    <section id="clients">
         <div class="container">
             <div class="content text-center">
                 <div class="row">

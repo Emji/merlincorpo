@@ -26,6 +26,7 @@
     "dependencies": {
         "@fortawesome/fontawesome-free": "^5.14.0",
         "animate.css": "^4.1.0",
-        "font-awesome": "^4.7.0"
+        "font-awesome": "^4.7.0",
+        "vue-cool-lightbox": "^2.5.1"
     }
 }

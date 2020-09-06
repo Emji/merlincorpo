@@ -314,6 +314,10 @@ a:focus {
     transition: all .4s ease-in-out;
     opacity: 0;
 }
+.portfolio-img{
+  height: auto;
+  max-height: 200px !important;
+}
 
 #portfolio .items li a .overlay span {
     position: absolute;
@@ -338,6 +342,9 @@ a:focus {
 #clients {
     color: #fff;
     background: #233b6f;
+    padding-top: 75px;
+    padding-bottom: 75px;
+    position: relative;
 }
 
 #testimonials .item {
