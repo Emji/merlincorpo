@@ -27,7 +27,12 @@ Route::middleware('isAdmin')->group(function () {
 
 Route::get('/admin', 'AdminController');
 Route::resource('/admin/photo', 'AdminPhotoController');
+
 Route::resource('/admin/session', 'AdminSessionController');
+Route::post('/admin/client/sendmailtoclient', 'AdminClientController@SendMailToClient')->name('SendMailToClient');
+Route::resource('/admin/client', 'AdminClientController');
+Route::resource('/admin/newsletter', 'AdminNewsletterController');
+
 
 
 

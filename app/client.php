@@ -12,6 +12,6 @@ class client extends Model
 
     public function session(){
         
-        return $this->belongsTo('App\Heure');
+        return $this->belongsTo('App\session');
     }
 }

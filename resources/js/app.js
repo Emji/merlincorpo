@@ -6,7 +6,7 @@
 
 // require('./bootstrap');
 
-
+require('./boutton')
 
 window.Axios = require('axios').default;
 
@@ -58,7 +58,7 @@ let showLightBox = function (event) {
     LightBox.classList.remove('d-none')
     LightBox.classList.add('d-flex');
     LightBoxImg.src = event.target.src;
-    console.log(index)
+
 
 
     return index;
@@ -71,9 +71,6 @@ Images.forEach(item => {
 })
 
 
-
-
-
 let PrevButton = document.querySelector(".prev")
 let NextButton = document.querySelector(".next")
 let CloseButton = document.querySelector(".close-box")
@@ -83,8 +80,11 @@ let CloseButton = document.querySelector(".close-box")
 let prev = function () {
 
     if (index == 0) {
+
         index = ImageArray.length - 1
+
     } else {
+
         index--
     }
 
@@ -128,3 +128,8 @@ let close = function () {
 PrevButton.addEventListener("click", prev)
 NextButton.addEventListener("click", next)
 CloseButton.addEventListener("click", close)
+
+
+// classer les clients dans admin  
+
+

@@ -69,7 +69,7 @@ class AdminSessionController extends Controller
      */
     public function show($id)
     {
-        //
+
     }
 
     /**

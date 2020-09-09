@@ -18,7 +18,7 @@ function initNavbar() {
         easing: EASING
     });
 
-    $(window).on("scroll", function(event) {
+    $(window).on("scroll", function (event) {
 
         var scroll = $(window).scrollTop();
 
@@ -29,7 +29,7 @@ function initNavbar() {
         }
     }).trigger("scroll");
 
-    $navExternal.click(function(e) {
+    $navExternal.click(function (e) {
         e.preventDefault();
 
         $("html, body").stop().animate({
@@ -44,7 +44,7 @@ function initPortfolio() {
     var $items = $portfolio.find(".items");
     var $filters = $portfolio.find(".filters li a");
 
-    $items.imagesLoaded(function() {
+    $items.imagesLoaded(function () {
 
         $items.isotope({
             itemSelector: ".item",
@@ -53,7 +53,7 @@ function initPortfolio() {
         });
     });
 
-    $filters.click(function() {
+    $filters.click(function () {
 
         var $el = $(this);
 
@@ -83,7 +83,7 @@ function initAnimations() {
         force_process: true
     });
 
-    $animated.on("appear", function() {
+    $animated.on("appear", function () {
 
         var $el = $(this);
 
@@ -97,7 +97,7 @@ function initAnimations() {
 
         if (delay) {
 
-            setTimeout(function() {
+            setTimeout(function () {
                 $el.addClass(animation);
                 $el.addClass("showing");
                 $el.removeClass("hiding");
@@ -111,24 +111,25 @@ function initAnimations() {
     });
 
     // Service hover animation
-    $(".service").hover(function() {
+    $(".service").hover(function () {
         $("i", this).addClass("animated tada");
-    }, function() {
+    }, function () {
         $("i", this).removeClass("animated tada");
     });
 }
 
-$(document).ready(function() {
+$(document).ready(function () {
 
     initNavbar();
     initPortfolio();
     initAnimations();
 });
 
-$(window).on("load", function() {
+$(window).on("load", function () {
 
     var $loader = $(".loader");
 
     $loader.find(".loading").fadeOut();
     $loader.fadeOut("slow");
 });
+

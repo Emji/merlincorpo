@@ -247,8 +247,18 @@ return [
             'icon'        => 'far fa-fw fa-file',
         ],
         [
+            'text'        => 'Client',
+            'url'         => 'admin/client',
+            'icon'        => 'far fa-fw fa-file',
+        ],
+        [
             'text'        => 'Photo',
             'url'         => 'admin/photo',
+            'icon'        => 'far fa-fw fa-file',
+        ],
+        [
+            'text'        => 'Newsletter',
+            'url'         => 'admin/newsletter',
             'icon'        => 'far fa-fw fa-file',
         ],
         ['header' => 'account_settings'],

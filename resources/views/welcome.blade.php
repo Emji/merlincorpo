@@ -101,11 +101,15 @@
                     <p class="mt-4 mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa, alias enim placeat earum quos ab.</p>
                 </div>
                 <div class="lightbox d-none">
-                    <span class="close-box">X</span>
+                    
+                    <i class="close-box fa fa-times" aria-hidden="true"></i>
                     <div class="lightbox-img">
-                        <button class="prev">Prev</button>
+                        <i class="prev fa-4x fa fa-chevron-left" aria-hidden="true"></i>
+
+                        {{-- <button class="prev">Prev</button> --}}
                         <img src="" alt="" class="lightbox-image">
-                        <button class="next">Next</button>
+                        <i class="next fa-4x fa fa-chevron-right" aria-hidden="true"></i>
+                        {{-- <button class="next">Next</button> --}}
                     </div>
                 </div>
                 <div class="row">
@@ -127,18 +131,19 @@
                                 </li>
                             </ul> --}}
                            
-                            <ul class="items list-unstyled clearfix animated hiding mb-0" data-animation="fadeInRight">
+
+                                <div class=" row items list-unstyled clearfix animated hiding mb-0" data-animation="fadeInRight" >
                                 @foreach($photos as $photo)
-                                <li class="item branding">
+                                <div class="item branding col-sm-4">
                                     
                                         <img class="portfolio-img" src="{{Storage::disk('photo')->url($photo->image)}}" alt="" value="{{ $loop->index }}">
                                         <div class="overlay">
                                             
                                         </div>
                                    
-                                </li>
+                                    </div>
                                 @endforeach
-                            </ul>
+                            </div>
 
                             {{-- COMPONENT VUEJS POUR IMAGE !!--}}
 
