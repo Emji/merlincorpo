@@ -11,6 +11,8 @@ class SessionSeeder extends Seeder
      */
     public function run()
     {
-        //
+        DB::table('sessions')->insert([
+            'date' => "3 octobre 2020",
+      ]);
     }
 }

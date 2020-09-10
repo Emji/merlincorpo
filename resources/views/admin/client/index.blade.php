@@ -44,9 +44,11 @@
                             <p class="mt-1">Le {{$client->session->date}} à {{$client->heure->heure}}</p>
                         </div>
                     </div>
-                    <div class="col-1">
+                    <div class="col-1 align-items-center justify-content-center d-flex @if($client->hasPaid) bg-success @endif">
                         <div class="row"> 
+                            @if($client->hasPaid)
                            <span> a payé</span>
+                           @endif
                         </div>
                     </div>
                     <div class="col-4 d-flex align-items-center">
@@ -56,13 +58,19 @@
                             </a>
                             </div>
                             <div>
-                            <button class="btn btn-warning">A payé</button>
+                            <form action="{{route('client.update',["client"=>$client->id])}}" method="post">
+                                @method('PUT')
+                                @csrf
+                                <button class="btn btn-warning">A payé</button>
+                            </form>
                             </div>
-                            <div>
-                                <button id="ClientClassed" class="btn btn-success">Classer client</button>
-                            </div>
-                                                        <div>
-                            <button class="btn btn-danger">Delete Client</button>
+                             <div>
+                                <form action="{{route('client.destroy',['client'=>$client->id])}}" method="POST">
+
+                                    @method('DELETE')
+                                    @csrf
+                                    <button class="btn btn-danger">Delete Client</button>
+                                </form>
                             </div>
                         </div>
                         
@@ -78,5 +86,4 @@
         </div>
     </div>
 
-        <script src="{{asset('js/app.js')}}"></script>
 @stop

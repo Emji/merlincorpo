@@ -32,6 +32,7 @@ Route::resource('/admin/session', 'AdminSessionController');
 Route::post('/admin/client/sendmailtoclient', 'AdminClientController@SendMailToClient')->name('SendMailToClient');
 Route::resource('/admin/client', 'AdminClientController');
 Route::resource('/admin/newsletter', 'AdminNewsletterController');
+Route::resource('/admin/heures', 'AdminHeuresController');
 
 
 

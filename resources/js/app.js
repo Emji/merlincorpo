@@ -6,7 +6,7 @@
 
 // require('./bootstrap');
 
-require('./boutton')
+
 
 window.Axios = require('axios').default;
 

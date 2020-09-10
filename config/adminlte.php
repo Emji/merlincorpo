@@ -247,6 +247,11 @@ return [
             'icon'        => 'far fa-fw fa-file',
         ],
         [
+            'text'        => 'Heures',
+            'url'         => 'admin/heures',
+            'icon'        => 'far fa-fw fa-file',
+        ],
+        [
             'text'        => 'Client',
             'url'         => 'admin/client',
             'icon'        => 'far fa-fw fa-file',

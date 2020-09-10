@@ -81,7 +81,20 @@ class AdminClientController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $client = client::find($id);
+        
+        if($client->hasPaid){
+        $client->hasPaid = 0;
+        $client->save();
+            
+        }else{
+            $client->hasPaid = 1;
+            $client->save();
+        }
+
+    
+
+        return redirect()->back();
     }
 
     /**
@@ -92,7 +105,15 @@ class AdminClientController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $client = client::find($id);
+        $heures = Heure::all();
+        $heure = $heures->where('id',$client->heure_id)->first();
+        $heure->taken = false;
+        $heure->save();
+        $client->delete();
+        
+        return redirect()->back();
+        
     }
     public function SendMailToClient(SendMessageToClientValidation $request){
 
@@ -123,6 +144,12 @@ class AdminClientController extends Controller
 
             return redirect()->route('client.index');
            
+    }
+
+    public function hasPaid(Request $request, $id){
+
+       
+
     }
 
 
