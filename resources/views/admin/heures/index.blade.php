@@ -12,7 +12,7 @@
     <div class="bg-light mt-3 p-3">
     @foreach ($heures as $heure)
         
- 
+    
     <div class="row mt-3">
         <div class="col-3">
         <span>{{$heure->heure}}</span>

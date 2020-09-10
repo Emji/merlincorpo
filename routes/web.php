@@ -33,6 +33,8 @@ Route::post('/admin/client/sendmailtoclient', 'AdminClientController@SendMailToC
 Route::resource('/admin/client', 'AdminClientController');
 Route::resource('/admin/newsletter', 'AdminNewsletterController');
 Route::resource('/admin/heures', 'AdminHeuresController');
+Route::resource('/admin/temoignage', 'TestimoniesController');
+Route::resource('/admin/textcorpo', 'CorpoTextController');
 
 
 

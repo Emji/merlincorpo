@@ -19,6 +19,7 @@
     </div>
 @endif
     <div class="m-3">
+        
         <form action="{{route('photo.store')}}" method="POST" enctype="multipart/form-data" class="row d-flex justify-content-between">
         @csrf
         @method('POST')

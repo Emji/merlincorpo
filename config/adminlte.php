@@ -242,6 +242,16 @@ return [
             'can'  => 'manage-blog',
         ],
         [
+            'text'        => 'Texte Website',
+            'url'         => 'admin/textcorpo',
+            'icon'        => 'far fa-fw fa-file',
+        ],
+        [
+            'text'        => 'Témoignage',
+            'url'         => 'admin/temoignage',
+            'icon'        => 'far fa-fw fa-file',
+        ],
+        [
             'text'        => 'Session',
             'url'         => 'admin/session',
             'icon'        => 'far fa-fw fa-file',
