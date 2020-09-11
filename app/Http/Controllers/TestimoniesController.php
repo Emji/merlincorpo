@@ -14,9 +14,9 @@ class TestimoniesController extends Controller
      */
     public function index()
     {
-        $testimonies = testimonies::all();
+        $testimoniess = testimonies::all();
 
-        return view('admin.testimonies.index',compact('testimonies'));
+        return view('admin.testimonies.index',compact('testimoniess'));
     }
 
     /**
@@ -26,7 +26,7 @@ class TestimoniesController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.testimonies.create');
     }
 
     /**
@@ -37,7 +37,12 @@ class TestimoniesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $testimonies = new testimonies;
+        $testimonies->testimonies=$request->testimonies;
+        $testimonies->author=$request->author;
+        $testimonies->save();
+
+        return redirect()->route('temoignage.index');
     }
 
     /**
@@ -57,9 +62,11 @@ class TestimoniesController extends Controller
      * @param  \App\testimonies  $testimonies
      * @return \Illuminate\Http\Response
      */
-    public function edit(testimonies $testimonies)
+    public function edit(testimonies $testimonies, $id)
     {
-        //
+        $testimonies = testimonies::find($id);
+
+        return view('admin.testimonies.edit',compact('testimonies'));
     }
 
     /**
@@ -69,9 +76,17 @@ class TestimoniesController extends Controller
      * @param  \App\testimonies  $testimonies
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, testimonies $testimonies)
+    public function update(Request $request, testimonies $testimonies,$id)
     {
-        //
+        $testimonies = testimonies::find($id);
+
+        
+
+        $testimonies->testimonies = $request->testimonies;
+        $testimonies->author = $request->author;
+        $testimonies->save();
+
+        return redirect()->route('temoignage.index');        
     }
 
     /**
@@ -80,8 +95,11 @@ class TestimoniesController extends Controller
      * @param  \App\testimonies  $testimonies
      * @return \Illuminate\Http\Response
      */
-    public function destroy(testimonies $testimonies)
+    public function destroy(testimonies $testimonies,$id)
     {
-        //
+        $testimonies = testimonies::find($id);
+        $testimonies->delete();
+
+        return redirect()->back();
     }
 }

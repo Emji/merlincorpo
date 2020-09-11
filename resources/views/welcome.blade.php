@@ -115,23 +115,6 @@
                 <div class="row">
                     <div class="col-md-12">
                       
-                            
-                            {{-- <ul class="filters list-inline">
-                                <li class="list-inline-item">
-                                    <a class="active" data-filter="*" href="#">All</a>
-                                </li>
-                                <li class="list-inline-item">
-                                    <a data-filter=".photography" href="#">Photography</a>
-                                </li>
-                                <li class="list-inline-item">
-                                    <a data-filter=".branding" href="#">Branding</a>
-                                </li>
-                                <li class="list-inline-item">
-                                    <a data-filter=".web" href="#">Web</a>
-                                </li>
-                            </ul> --}}
-                           
-
                                 <div class=" row items list-unstyled clearfix animated hiding mb-0" data-animation="fadeInRight" >
                                 @foreach($photos as $photo)
                                 <div class="item branding col-sm-4">
@@ -144,10 +127,6 @@
                                     </div>
                                 @endforeach
                             </div>
-
-                            {{-- COMPONENT VUEJS POUR IMAGE !!--}}
-
-                            {{-- <image-component></image-component> --}}
                         
                     </div>
                 </div>
@@ -167,22 +146,17 @@
                                 <li data-target="#testimonials" data-slide-to="3" class=""></li>
                             </ol>
                             <div class="carousel-inner">
+  
                                 <div class="carousel-item active flex-column">
-                                    <p class="quote mb-4">Quisque convallis diam ligula, ac accumsan eros pretium vel. Curabitur convallis nibh sit amet iaculis ornare. Integer blandit quis diam sed tincidunt.</p>
-                                    <p class="client mb-5">John Doe / CEO</p>
+                                <p class="quote mb-4">{{$firsttestimonies->testimonies}}</p>
+                                <p class="client mb-5">{{$firsttestimonies->author}}</p>
                                 </div>
+                                @foreach ($slicedtestimonies as $slicedtestimonie)
                                 <div class="carousel-item flex-column">
-                                    <p class="quote mb-4">Vestibulum volutpat accumsan sem non eleifend. Vivamus pretium nisi semper sapien eleifend, vel lacinia lacus sodales. Morbi bibendum purus at leo laoreet, vel ultricies orci viverra.</p>
-                                    <p class="client mb-5">Jorginho Jian / Developer</p>
+                                <p class="quote mb-4"> {{$slicedtestimonie->testimonies}}</p>
+                                <p class="client mb-5">{{$slicedtestimonie->author}}</p>
                                 </div>
-                                <div class="carousel-item flex-column">
-                                    <p class="quote mb-4">Curabitur in nulla et lorem varius convallis. Morbi bibendum purus at leo laoreet, vel ultricies orci viverra. Duis quis accumsan urna. Nulla faucibus mauris elit, vitae tristique nisi sollicitudin ut.</p>
-                                    <p class="client mb-5">Gandalf Kadir / Web Designer</p>
-                                </div>
-                                <div class="carousel-item flex-column">
-                                    <p class="quote mb-4">Nullam vel tempor quam, id dictum eros. Nam augue sem, aliquam ac mauris in, pharetra convallis quam. Nulla faucibus mauris elit, vitae tristique nisi sollicitudin ut. Vivamus pretium nisi semper sapien eleifend.</p>
-                                    <p class="client mb-5">Homeros Yehudi / QA Engineer</p>
-                                </div>
+                                @endforeach
                             </div>
                         </div>
                     </div>

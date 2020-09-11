@@ -132,4 +132,3 @@ CloseButton.addEventListener("click", close)
 
 // classer les clients dans admin  
 
-

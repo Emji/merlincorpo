@@ -9,6 +9,7 @@ use App\newsletter;
 use App\client;
 use App\session;
 use App\Heure;
+use App\testimonies;
 use Storage;
 
 use Illuminate\Support\Facades\Mail;
@@ -26,8 +27,13 @@ class HomeController extends Controller
         $heures= Heure::all();
         $allSession = session::all();
         $session = session::NextSession();
+        $testimoniesAll = testimonies::all();
+        $testimonies = $testimoniesAll->random(4);
+        $firsttestimonies = $testimonies->first();
+        $slicedtestimonies = $testimonies->slice(1);
+        
        
-        return view('welcome',compact('photos','heures','session'));
+        return view('welcome',compact('photos','heures','session','slicedtestimonies','firsttestimonies',));
     }
 
     /**

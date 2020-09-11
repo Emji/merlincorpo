@@ -15904,8 +15904,6 @@ module.exports = g;
  * building robust, powerful web applications using Vue and Laravel.
  */
 // require('./bootstrap');
-__webpack_require__(/*! ./boutton */ "./resources/js/boutton.js");
-
 window.Axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js")["default"];
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 /**
@@ -15986,24 +15984,16 @@ var close = function close() {
 
 PrevButton.addEventListener("click", prev);
 NextButton.addEventListener("click", next);
-CloseButton.addEventListener("click", close); // classer les clients dans admin
+CloseButton.addEventListener("click", close); // classer les clients dans admin  
 
-/***/ }),
+var carousel = document.querySelectorAll('carousel-item');
+var tar = carousel[0];
 
-/***/ "./resources/js/boutton.js":
-/*!*********************************!*\
-  !*** ./resources/js/boutton.js ***!
-  \*********************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-var ultrabutton = document.querySelector('#ClientClassed');
-
-var ClassClient = function ClassClient() {
-  console.log('poy');
+var enligne = function enligne() {
+  tar.classList.add('active');
 };
 
-ultrabutton.addEventListener('click', ClassClient);
+enligne();
 
 /***/ }),
 
